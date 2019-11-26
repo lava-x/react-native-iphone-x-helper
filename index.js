@@ -18,11 +18,12 @@ export function ifIphoneX(iphoneXStyle, regularStyle) {
 }
 
 export function getStatusBarHeight(safe) {
-    return Platform.select({
-        ios: ifIphoneX(safe ? 44 : 30, 20),
-        android: StatusBar.currentHeight,
-        default: 0
+    const result = Platform.select({
+      ios: ifIphoneX(safe ? 44 : 30, 20),
+      android: StatusBar.currentHeight,
+      default: 0
     });
+    return result;
 }
 
 export function getBottomSpace() {
